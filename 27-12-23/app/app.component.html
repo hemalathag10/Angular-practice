@@ -1,0 +1,7 @@
+<!-- src/app/app.component.html -->
+
+<div>
+    <app-add-task (taskAdded)="onTaskAdded($event)"></app-add-task>
+    <app-task-list [tasks]="taskList"></app-task-list>
+  </div>
+  
