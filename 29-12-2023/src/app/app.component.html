@@ -1,0 +1,6 @@
+<!-- app.component.html -->
+
+<div>
+  <app-employee-list [employees]="employees"></app-employee-list>
+  <app-salary-calculator (employeeAdded)="addEmployee($event)"></app-salary-calculator>
+</div>

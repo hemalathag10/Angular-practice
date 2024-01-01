@@ -1,0 +1,15 @@
+
+<div>
+  <h2>Employee List</h2>
+  <ul>
+    <li *ngFor="let employee of employees">
+      {{ employee.name }} - {{ employee.role }}
+      <ul>
+        <li>Base Salary: {{ employee.basicSalary }}</li>
+        <li>PF Deduction: {{ employee.pfDeduction }}</li>
+        <li>Tax Deduction: {{ employee.taxDeduction }}</li>
+        <li>Final Salary: {{ employee.finalSalary }}</li>
+      </ul>
+    </li>
+  </ul>
+</div>

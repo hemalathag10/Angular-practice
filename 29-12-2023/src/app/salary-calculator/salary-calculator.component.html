@@ -1,0 +1,29 @@
+<!-- salary-calculator.component.html -->
+
+<div>
+  <h2>Salary Calculator</h2>
+  <div>
+    <form [formGroup]="employeeForm">
+      <label for="name">Employee Name:</label>
+      <input type="text" id="name" formControlName="name" />
+      <div *ngIf="name && (name.invalid && (name.dirty || name.touched))">
+        <div *ngIf="name.hasError('required')">Name is required.</div>
+        <div *ngIf="name.hasError('pattern')">Please enter a valid name with only alphabets.</div>
+      </div>
+
+    <label for="id">Employee ID (numbers only):</label>
+    <input type="number" id="id" formControlName="id" min="0" required />
+
+    <label for="role">Role:</label>
+    <select id="role" formControlName="role">
+      <option value="tester">Tester</option>
+      <option value="manager">Manager</option>
+      <option value="developer">Developer</option>
+    </select>
+
+    <label for="basicSalary">Basic Salary:</label>
+    <input type="number" id="basicSalary" formControlName="basicSalary" min="0" required />
+
+    <button type="button" (click)="addEmployee()">Add Employee</button>
+  </form>
+</div>
