@@ -1,0 +1,27 @@
+<div>
+    <h2>Employee List</h2>
+    <div class="filter-section">
+        <label>Status Filter:</label>
+        <select [(ngModel)]="statusFilter">
+            <option value="all">All</option>
+            <option value="active">Active</option>
+            <option value="inactive">Inactive</option>
+        </select>
+        <label>Name Filter:</label>
+        <input type="text" [(ngModel)]="nameFilter" placeholder="Enter name...">
+
+       
+    </div>
+    <div class="card-container">
+        <div *ngFor="let employee of filteredEmployees" class="card" [ngClass]="{'active': employee.status === 'active', 'inactive': employee.status === 'inactive'}">
+            <span>{{ employee.name }}</span>
+            <span>{{ employee.position }}</span>
+            <span [ngSwitch]="employee.status" [ngClass]="'status-' + employee.status">
+                <span *ngSwitchCase="'active'">Active</span>
+                <span *ngSwitchCase="'inactive'">Inactive</span>
+                <span *ngSwitchDefault>Unknown</span>
+            </span>
+           
+        </div>
+    </div>
+</div>
