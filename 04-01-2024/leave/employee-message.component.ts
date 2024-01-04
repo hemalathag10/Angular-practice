@@ -90,7 +90,7 @@ export class EmployeeMessageComponent {
       },
     };
     this.messageService.addMessage(message);
-    this.updatePendingMessages(); // Update pending messages after sending a message
+    this.updatePendingMessages(); 
   }
 
   private updatePendingMessages(): void {
@@ -98,7 +98,7 @@ export class EmployeeMessageComponent {
     if (this.details && !this.responseMessages.includes('Accepted') && !this.responseMessages.includes('Rejected')) {
       this.pendingMessages.push('Pending: Leave request');
     } else {
-      this.pendingMessages = []; // If Accepted or Rejected, clear pending messages
+      this.pendingMessages = []; 
     }
   }
 }
