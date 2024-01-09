@@ -1,0 +1,11 @@
+<!-- published-data.component.html -->
+<div>
+  <h2>Published Data</h2>
+  <ul>
+    <li *ngFor="let data of publishedData">
+      <div *ngFor="let item of transformObjectToArray(data)">
+        {{ item.key }}: {{ item.value }}&nbsp;&nbsp;
+      </div>
+    </li>
+  </ul>
+</div>

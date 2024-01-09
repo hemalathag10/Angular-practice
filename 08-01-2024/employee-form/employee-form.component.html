@@ -1,0 +1,74 @@
+<!-- employee-form.component.html -->
+<form *ngIf="employeeForm" [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+
+  <!-- Employee Name -->
+  <label for="name">Employee Name:</label>
+  <input type="text" id="name" formControlName="name">
+  <div *ngIf="employeeForm.get('name')?.hasError('required') && employeeForm.get('name')?.touched">
+    Employee name is required.
+  </div>
+
+  <!-- Address -->
+  <label for="address">Address:</label>
+  <input type="text" id="address" formControlName="address">
+  <div *ngIf="employeeForm.get('address')?.hasError('required') && employeeForm.get('address')?.touched">
+    Address is required.
+  </div>
+
+  <!-- City -->
+  <label for="city">City:</label>
+  <input type="text" id="city" formControlName="city">
+  <div *ngIf="employeeForm.get('city')?.hasError('required') && employeeForm.get('city')?.touched">
+    City is required.
+  </div>
+
+  <!-- Pincode -->
+  <label for="pincode">Pincode:</label>
+  <input type="text" id="pincode" formControlName="pincode">
+  <div *ngIf="(employeeForm.get('pincode')?.hasError('required') || employeeForm.get('pincode')?.hasError('pattern')) && employeeForm.get('pincode')?.touched">
+    Pincode must be a 6-digit number.
+  </div>
+
+  <!-- Mobile -->
+  <label for="mobile">Mobile:</label>
+  <input type="text" id="mobile" formControlName="mobile">
+  <div *ngIf="(employeeForm.get('mobile')?.hasError('required') || employeeForm.get('mobile')?.hasError('pattern')) && employeeForm.get('mobile')?.touched">
+    Mobile number must be a 10-digit number.
+  </div>
+
+  <!-- Degree -->
+  <label for="degree">Degree:</label>
+  <select id="degree" formControlName="degree">
+    <option *ngFor="let degree of degrees" [value]="degree">{{ degree }}</option>
+  </select>
+  <div *ngIf="employeeForm.get('degree')?.hasError('required') && employeeForm.get('degree')?.touched">
+    Degree is required.
+  </div>
+
+  <!-- Designation -->
+  <label for="designation">Designation:</label>
+  <select id="designation" formControlName="designation">
+    <option *ngFor="let designation of designations" [value]="designation">{{ designation }}</option>
+  </select>
+  <div *ngIf="employeeForm.get('designation')?.hasError('required') && employeeForm.get('designation')?.touched">
+    Designation is required.
+  </div>
+
+  <!-- Branch -->
+  <label for="branch">Branch:</label>
+  <select id="branch" formControlName="branch">
+    <option *ngFor="let branch of branches" [value]="branch">{{ branch }}</option>
+  </select>
+  <div *ngIf="employeeForm.get('branch')?.hasError('required') && employeeForm.get('branch')?.touched">
+    Branch is required.
+  </div>
+
+  <!-- Email -->
+  <label for="email">Email:</label>
+  <input type="text" id="email" formControlName="email">
+  <div *ngIf="(employeeForm.get('email')?.hasError('required') || employeeForm.get('email')?.hasError('email')) && employeeForm.get('email')?.touched">
+    {{ employeeForm.get('email')?.hasError('required') ? 'Email is required.' : 'Enter a valid email address.' }}
+  </div>
+
+  <button type="submit" [disabled]="!employeeForm.valid">Submit</button>
+</form>
